@@ -1,0 +1,21 @@
+{
+    "1231": {
+        "titular":"João",
+        "senha":"123",
+        "agencia":"1",
+        "saldo": 123.123
+        
+    },
+    "1232": {
+        "titular":"Felipe",
+        "senha":"123",
+        "agencia":"1",
+        "saldo": 123.123
+    },
+    "1233": {
+        "titular":"Jonas",
+        "senha":"123",
+        "agencia":"1",
+        "saldo": 123.123
+    }
+}
