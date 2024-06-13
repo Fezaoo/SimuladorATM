@@ -13,4 +13,6 @@ internal class DadosConta
     public double Saldo { get; set; }
     [JsonPropertyName("agencia")]
     public string? Agencia { get; set; }
+    [JsonPropertyName("conta")]
+    public string Conta { get; set; }
 }

@@ -1,5 +1,7 @@
-﻿using SimuladorATM.Modelos;
+﻿using SimuladorATM.Funcoes;
+using SimuladorATM.Modelos;
 using System.Text.Json;
+using System.Threading.Channels;
 
 namespace SimuladorATM.Menu;
 
@@ -7,41 +9,33 @@ internal class MenuDeposito : Menu
 {
     public override void Execute()
     {
+        base.Execute();
+        ExibirTitulo("Depósito");
         Console.Write("Numero da Conta: ");
         string conta = Console.ReadLine()!;
-        //string json = File.ReadAllText(@"C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\bin\Debug\net8.0\Contas.json");
-        string json = File.ReadAllText(@"C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\Contas.json");
-        Dictionary<string, DadosConta> contas = JsonSerializer.Deserialize<Dictionary<string, DadosConta>>(json)!;
+        Dictionary<string, DadosConta> contas = RegistroDeContas.ObterRegistroDadosContas();
         if (contas.ContainsKey(conta))
         {
-            Console.Write("Insira sua senha: ");
-            string senha = Console.ReadLine()!;
-            if (contas[conta].Senha!.Equals(senha))
+            DadosConta contaAcessada = contas[conta];
+            Console.Write("Quanto deseja depositar? ");
+            double valor = Convert.ToInt32(Console.ReadLine());
+            double novoSaldo = valor + contaAcessada.Saldo;
+            contas[conta].Saldo = novoSaldo;
+            DadosTransacoes Transacao = new DadosTransacoes
             {
-                DadosConta contaAcessada = contas[conta];
-                Console.Write("Quanto deseja depositar? ");
-                double valor = Convert.ToInt32(Console.ReadLine());
-                double novoSaldo = valor + contaAcessada.Saldo;
-
-                Console.WriteLine(json);
-
-                //for (int i = 0; i < json.Length; i++)
-                //{
-                //    if (jsona.Contains(conta))
-                //    {
-                //        break; // Remove esta linha se quiser substituir todas as ocorrências
-                //    }
-                //} 
-                {
-                    Console.WriteLine("Acess Denied");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Nenhuma conta foi encontrada! ");
-            }
-
-
+                NTransacao = "",
+                Valor = valor,
+                ContaDestino = conta,
+                ContaOrigem = null,
+                Tipo = "Depósito"
+            };
+            bool res = RegistroDeContas.EscreverNovoRegistro(contas, Transacao);
+            if (res) { Mensagens.ExibirSucesso("Depósito realizado com sucesso!"); }
+            else { Mensagens.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
+        }
+        else
+        {
+            Console.WriteLine("Nenhuma conta foi encontrada! ");
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
-using System.Diagnostics;
 using System.Text.Json;
 
 namespace SimuladorATM.Menu;
@@ -12,7 +11,7 @@ internal class MenuCriarConta : Menu
         base.Execute();
         ConsoleColor corOriginalTexto = Console.ForegroundColor;
         ConsoleColor corOriginalFundo = Console.BackgroundColor;
-        Dictionary<string, DadosConta> json = AcessarContas.Execute(false);
+        Dictionary<string, DadosConta> json = RegistroDeContas.ObterRegistroDadosContas();
         string path = @"C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\bin\Debug\net8.0\Contas.json";
         var options = new JsonSerializerOptions
         {
@@ -55,7 +54,8 @@ internal class MenuCriarConta : Menu
             Titular = nome,
             Senha = senha,
             Agencia = "1",
-            Saldo = 0
+            Saldo = 0,
+            Conta = nConta
         });
         try
         {

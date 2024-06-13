@@ -1,56 +1,16 @@
 {
-  "1231": {
-    "titular": "João",
-    "senha": "123",
-    "saldo": 123.123,
-    "agencia": "1"
-  },
-  "1232": {
-    "titular": "Felipe",
-    "senha": "123",
-    "saldo": 123.123,
-    "agencia": "1"
-  },
-  "1233": {
-    "titular": "Jonas",
-    "senha": "123",
-    "saldo": 123.123,
-    "agencia": "1"
-  },
-  "1234": {
-    "titular": "Felipe",
-    "senha": "123",
-    "saldo": 123.123,
-    "agencia": "1"
-  },
-  "64761": {
-    "titular": "Felipe",
-    "senha": "1231",
-    "saldo": 123.123,
-    "agencia": "1"
-  },
-  "32633": {
-    "titular": "Felipasda",
-    "senha": "1231",
-    "saldo": 123.123,
-    "agencia": "1"
-  },
-  "55621": {
-    "titular": "FElpasda",
-    "senha": "1231",
-    "saldo": 0,
-    "agencia": "1"
-  },
-  "54186": {
-    "titular": "feasd",
-    "senha": "1231",
-    "saldo": 0,
-    "agencia": "1"
-  },
   "18655": {
     "titular": "Jose",
     "senha": "1231",
-    "saldo": 0,
-    "agencia": "1"
+    "saldo": 9000,
+    "agencia": "1",
+    "conta": "18655"
+  },
+  "02641": {
+    "titular": "FElipe",
+    "senha": "1231",
+    "saldo": 26000,
+    "agencia": "1",
+    "conta": "02641"
   }
 }

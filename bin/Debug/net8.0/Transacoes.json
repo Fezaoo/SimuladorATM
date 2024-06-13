@@ -1,0 +1,34 @@
+{
+  "61203685470172236851": {
+    "n_transacao": "61203685470172236851",
+    "tipo": "Depósito",
+    "valor": 10000,
+    "data": null,
+    "conta_destino": "18655",
+    "conta_origem": null
+  },
+  "30823334336241721182": {
+    "n_transacao": "30823334336241721182",
+    "tipo": "Transferência bancária",
+    "valor": 19000,
+    "data": null,
+    "conta_destino": "02641",
+    "conta_origem": "18655"
+  },
+  "76482806058068605107": {
+    "n_transacao": "76482806058068605107",
+    "tipo": "Depósito",
+    "valor": 10000,
+    "data": "13/06/2024 16:29:59",
+    "conta_destino": "18655",
+    "conta_origem": null
+  },
+  "16751184165376140746": {
+    "n_transacao": "16751184165376140746",
+    "tipo": "Transferência bancária",
+    "valor": 1000,
+    "data": "13/06/2024 16:31:24",
+    "conta_destino": "02641",
+    "conta_origem": "18655"
+  }
+}
