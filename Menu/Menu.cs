@@ -20,4 +20,9 @@ internal class Menu
         Console.Clear();
         ExibirTitulo(conta.Titular!);
     }
+    public virtual void ExibirSecao(string titulo)
+    {
+        string divisor = string.Empty.PadLeft(titulo.Length, '-');
+        Console.WriteLine($"{divisor} {titulo} {divisor}");
+    }
 }

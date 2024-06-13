@@ -12,8 +12,7 @@ internal class MenuEntrarNaConta : Menu
         Console.WriteLine();
         Console.Write("Numero da Conta: ");
         string conta = Console.ReadLine()!;
-        //string json = File.ReadAllText(@"C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\bin\Debug\net8.0\Contas.json
-        string json = File.ReadAllText(@"C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\Contas.json");
+        string json = File.ReadAllText(@"Contas.json");
         Dictionary<string, DadosConta> contas = JsonSerializer.Deserialize<Dictionary<string, DadosConta>>(json)!;
         if (contas.ContainsKey(conta))
         {

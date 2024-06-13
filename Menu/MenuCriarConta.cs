@@ -9,21 +9,66 @@ internal class MenuCriarConta : Menu
 {
     public override void Execute()
     {
-        string path = @"C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\Contas.json";
-        string newJson = File.ReadAllText(path);
-        Dictionary<string, DadosConta> json = AcessarContas.Execute(true);
-        string dado = JsonSerializer.Serialize(new DadosConta {
-            Titular = "Felipe",
-            Senha = "123",
+        base.Execute();
+        ConsoleColor corOriginalTexto = Console.ForegroundColor;
+        ConsoleColor corOriginalFundo = Console.BackgroundColor;
+        Dictionary<string, DadosConta> json = AcessarContas.Execute(false);
+        string path = @"C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\bin\Debug\net8.0\Contas.json";
+        var options = new JsonSerializerOptions
+        {
+            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+            WriteIndented = true
+        };
+
+        ExibirTitulo("Criar Conta");
+        Console.WriteLine();
+        ExibirSecao("FORMULÁRIO");
+        Console.WriteLine();
+        Console.Write("Qual seu nome? ");
+        string nome = Console.ReadLine()!;
+        string senha;
+        while (true) 
+        {
+        Console.Write("Qual será sua senha? [4 dígitos]: ");
+        senha = Console.ReadLine()!;
+            if (!(senha.Length < 4 || senha.Length > 4 || !senha.All(char.IsDigit))) 
+            {
+                break;
+            }
+            else { Console.WriteLine("Digite uma senha com 4 dígitos Apenas números "); }
+        }
+
+        string nConta = "";
+        while (true)
+        {
+            Random random = new();
+            for (int i = 0; i < 5; i++)
+            {
+                nConta += Convert.ToString(random.Next(9));
+            }
+            if (!json.ContainsKey(Convert.ToString(nConta)!)) { break; }
+        }
+
+        Console.WriteLine($"Sua conta possui número de conta: {nConta}");
+        json.Add(nConta, new DadosConta
+        {
+            Titular = nome,
+            Senha = senha,
             Agencia = "1",
-            Saldo = 123.123
+            Saldo = 0
         });
-        DadosConta dados = JsonSerializer.Deserialize<DadosConta>(dado)!;
-        json.Add("123910", dados);
-        Console.WriteLine(dados.Titular);
-        File.WriteAllText(path, newJson);
-        newJson = File.ReadAllText(path);
-        Console.WriteLine(newJson);
-        Console.ReadLine();
+        try
+        {
+            string newjson = JsonSerializer.Serialize(json, options);
+            File.WriteAllText(path, newjson);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Conta criado com Sucesso!");
+            Console.ForegroundColor = corOriginalTexto;
+            
+        }
+        catch
+        {
+            Console.WriteLine("Ocorreu um erro ao criar a conta! ");
+        }
     }
 }
