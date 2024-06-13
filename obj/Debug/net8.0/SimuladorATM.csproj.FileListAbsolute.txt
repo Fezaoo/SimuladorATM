@@ -13,3 +13,18 @@ C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorA
 C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\obj\Debug\net8.0\SimuladorATM.pdb
 C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\obj\Debug\net8.0\SimuladorATM.genruntimeconfig.cache
 C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\obj\Debug\net8.0\ref\SimuladorATM.dll
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\SimuladorATM.exe
+C:\Users\Família Guimaraes\Source\Repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\SimuladorATM.deps.json
+C:\Users\Família Guimaraes\Source\Repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\SimuladorATM.runtimeconfig.json
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\SimuladorATM.dll
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\bin\Debug\net8.0\SimuladorATM.pdb
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.AssemblyInfoInputs.cache
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.AssemblyInfo.cs
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.csproj.CoreCompileInputs.cache
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.sourcelink.json
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.dll
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\refint\SimuladorATM.dll
+C:\Users\Família Guimaraes\source\repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.pdb
+C:\Users\Família Guimaraes\Source\Repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\SimuladorATM.genruntimeconfig.cache
+C:\Users\Família Guimaraes\Source\Repos\Fezaoo\SimuladorATM\obj\Debug\net8.0\ref\SimuladorATM.dll

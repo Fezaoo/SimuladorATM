@@ -41,7 +41,7 @@ void ExibirMenuInicial()
             break;
 
         case 3:
-            menus[3].Execute()
+            menus[3].Execute();
             break;
 
         default:
