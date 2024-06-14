@@ -17,8 +17,19 @@ internal class MenuExtrato : Menu
             Console.WriteLine();
             Console.WriteLine($"Data: {transacao.Data}");
             Console.WriteLine($"Tipo: {transacao.Tipo}");
-            Console.WriteLine($"Valor: {transacao.Valor}");
-            Console.WriteLine($"Conta origem: {transacao.ContaOrigem}");
+            if (transacao.ContaOrigem == conta.Conta)
+            {
+                Console.Write($"Valor: ");
+                Mensagem.ExibirFracasso((transacao.Valor * -1).ToString());
+                Console.WriteLine($"Conta destino: {transacao.ContaDestino}");
+            }
+            else
+            {
+                Console.Write($"Valor: ");
+                Mensagem.ExibirSucesso((transacao.Valor).ToString());
+                Console.WriteLine($"Conta origem: {transacao.ContaOrigem}");
+            }
+            
         }
     }
 }

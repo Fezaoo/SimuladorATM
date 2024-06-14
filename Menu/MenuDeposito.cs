@@ -30,8 +30,8 @@ internal class MenuDeposito : Menu
                 Tipo = "Depósito"
             };
             bool res = RegistroDeContas.EscreverNovoRegistro(contas, Transacao);
-            if (res) { Mensagens.ExibirSucesso("Depósito realizado com sucesso!"); }
-            else { Mensagens.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
+            if (res) { Mensagem.ExibirSucesso("Depósito realizado com sucesso!"); }
+            else { Mensagem.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
         }
         else
         {

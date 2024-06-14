@@ -31,12 +31,12 @@ internal class MenuTransferencia : Menu
                     Tipo = "Transferência bancária"
                 };
                 bool res = RegistroDeContas.EscreverNovoRegistro(contas, Transacao);
-                if (res) { Mensagens.ExibirSucesso("Depósito realizado com sucesso!"); }
-                else { Mensagens.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
+                if (res) { Mensagem.ExibirSucesso("Depósito realizado com sucesso!"); }
+                else { Mensagem.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
             }
             else
             {
-                Mensagens.ExibirFracasso("Você não possui saldo suficiente para esta transação!");
+                Mensagem.ExibirFracasso("Você não possui saldo suficiente para esta transação!");
             }
         }
 

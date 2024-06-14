@@ -55,7 +55,7 @@ internal class RegistroDeContas
         }
         catch (Exception ex)
         {
-            Mensagens.ExibirFracasso("Ocorreu um erro: ");
+            Mensagem.ExibirFracasso("Ocorreu um erro: ");
             Console.WriteLine(ex.Message);
             return false;
         }
