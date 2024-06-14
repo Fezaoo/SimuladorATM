@@ -10,8 +10,15 @@ internal class MenuExtrato : Menu
     {
         base.Execute(conta);
         Console.WriteLine();
+        Console.Write("Escolha uma opção: ");
+        Console.Write("[1] Exibir todo extrato");
+        Console.Write("[2] Exibir hoje");
+        Console.Write("[3] Dia específico");
+        Console.Write("Sua opção: ");
+        string res = Console.ReadLine()!;
+
         ExibirSecao("Extrato");
-        List<DadosTransacoes> transacoes = LinqFilter.FiltrarExtratoPorContaDestino(conta.Conta);
+        List<DadosTransacoes> transacoes = LinqFilter.FiltrarExtratoPorDia(conta.Conta);
         foreach (var transacao in transacoes)
         {
             Console.WriteLine();
