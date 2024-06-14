@@ -11,6 +11,5 @@ internal class LinqFilter
         Dictionary<string, DadosTransacoes> extrato = RegistroDeContas.ObterRegistroDadosTransacoes();
         var extratoFiltrado = extrato.Where(transacao => transacao.Value.ContaDestino!.Equals(conta) || transacao.Value.ContaOrigem!.Equals(conta)).Select(transacao => transacao.Value).ToList();
         return extratoFiltrado;
-        
     }
 }

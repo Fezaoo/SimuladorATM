@@ -1,4 +1,5 @@
-﻿using SimuladorATM.Modelos;
+﻿using SimuladorATM.Funcoes;
+using SimuladorATM.Modelos;
 using System.Text.Json;
 
 namespace SimuladorATM.Menu;
@@ -28,8 +29,9 @@ internal class MenuEntrarNaConta : Menu
                 menuLogado.Execute(contaAcessada.Conta);
             }
             else 
-            { 
-                Console.WriteLine("Acess Denied");
+            {
+                Mensagem.ExibirFracasso("Conta ou Senha incorreta");
+                Thread.Sleep(3000);
             }
         }
         else 

@@ -1,4 +1,5 @@
-﻿using SimuladorATM.Menu;
+﻿using SimuladorATM.Funcoes;
+using SimuladorATM.Menu;
 
 Dictionary<int,Menu>menus = new();
 menus.Add(1, new MenuDeposito());
@@ -22,9 +23,23 @@ void ExibirMenuInicial()
     Console.WriteLine("[2] Criar uma Conta");
     Console.WriteLine("[3] Entrar ");
     Console.WriteLine("[0] Sair");
-
-    Console.Write("Opção: ");
-    int option = Convert.ToInt32(Console.ReadLine());
+    string res;
+    while (true) 
+    { 
+        Console.Write("Opção: ");
+        res = Console.ReadLine()!;
+        if (res == "" || !res.Any(char.IsDigit))
+        {
+            Mensagem.ExibirFracasso("Digite uma opção válida! ");
+            Thread.Sleep(3000);
+        }
+        else if (res.All(char.IsDigit))
+        {
+            break;
+        }
+    }
+    int option = Convert.ToInt32(res);
+    
     switch (option)
     {
 
@@ -45,7 +60,7 @@ void ExibirMenuInicial()
             break;
 
         default:
-            Console.WriteLine("Digite uma opção válida! ");
+            Mensagem.ExibirFracasso("Digite uma opção válida! ");
             Thread.Sleep(4000);
             break;
     }
