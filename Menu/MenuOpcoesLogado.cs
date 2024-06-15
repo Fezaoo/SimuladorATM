@@ -34,9 +34,6 @@ internal class MenuOpcoesLogado : Menu
 
             case 1:
                 menus[1].Execute(conta);
-                MenuExtrato meno = new();
-                meno.Execute(conta);
-
                 break;
 
             case 2:

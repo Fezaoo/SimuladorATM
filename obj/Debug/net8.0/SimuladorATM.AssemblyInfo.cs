@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimuladorATM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbc0fbb552ef9d89ae6ddc949c148d21b74c71ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54c1806c2984a5c2793ed4982cb6c0d8057bdfdb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimuladorATM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimuladorATM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

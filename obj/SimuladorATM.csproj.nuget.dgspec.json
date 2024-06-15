@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Família Guimaraes\\source\\repos\\Fezaoo\\SimuladorATM\\SimuladorATM.csproj": {}
+    "C:\\Users\\fegui\\OneDrive\\Área de Trabalho\\Curso em Vídeo\\C#\\Projetos\\SimuladorATM\\SimuladorATM\\SimuladorATM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Família Guimaraes\\source\\repos\\Fezaoo\\SimuladorATM\\SimuladorATM.csproj": {
+    "C:\\Users\\fegui\\OneDrive\\Área de Trabalho\\Curso em Vídeo\\C#\\Projetos\\SimuladorATM\\SimuladorATM\\SimuladorATM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Família Guimaraes\\source\\repos\\Fezaoo\\SimuladorATM\\SimuladorATM.csproj",
+        "projectUniqueName": "C:\\Users\\fegui\\OneDrive\\Área de Trabalho\\Curso em Vídeo\\C#\\Projetos\\SimuladorATM\\SimuladorATM\\SimuladorATM.csproj",
         "projectName": "SimuladorATM",
-        "projectPath": "C:\\Users\\Família Guimaraes\\source\\repos\\Fezaoo\\SimuladorATM\\SimuladorATM.csproj",
-        "packagesPath": "C:\\Users\\Família Guimaraes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Família Guimaraes\\source\\repos\\Fezaoo\\SimuladorATM\\obj\\",
+        "projectPath": "C:\\Users\\fegui\\OneDrive\\Área de Trabalho\\Curso em Vídeo\\C#\\Projetos\\SimuladorATM\\SimuladorATM\\SimuladorATM.csproj",
+        "packagesPath": "C:\\Users\\fegui\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fegui\\OneDrive\\Área de Trabalho\\Curso em Vídeo\\C#\\Projetos\\SimuladorATM\\SimuladorATM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Família Guimaraes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fegui\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

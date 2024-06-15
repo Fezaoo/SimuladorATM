@@ -9,16 +9,41 @@ internal class MenuExtrato : Menu
     public override void Execute(DadosConta conta)
     {
         base.Execute(conta);
+        List<DadosTransacoes> transacoes;
         Console.WriteLine();
-        Console.Write("Escolha uma opção: ");
-        Console.Write("[1] Exibir todo extrato");
-        Console.Write("[2] Exibir hoje");
-        Console.Write("[3] Dia específico");
-        Console.Write("Sua opção: ");
-        string res = Console.ReadLine()!;
+        Console.WriteLine("Escolha uma opção: ");
+        Console.WriteLine("[0] Sair");
+        Console.WriteLine("[1] Exibir todo extrato");
+        Console.WriteLine("[2] Exibir hoje");
+        Console.WriteLine("[3] Dia específico");
+        Console.WriteLine("Sua opção: ");
+        int option = Convert.ToInt32(Console.ReadLine());
+        switch (option)
+        {
+            case 0:
+                Console.WriteLine("Saindo...");
+                Thread.Sleep(1500);
+                return;
 
+            case 1:
+                transacoes = LinqFilter.FiltrarExtratoPorConta(conta.Conta);
+                break;
+
+            case 2:
+                transacoes = LinqFilter.FiltrarExtratoPorHoje(conta.Conta);
+                break;
+
+            case 3:
+                transacoes = LinqFilter.FiltrarExtratoPorConta(conta.Conta);
+
+                break;
+
+            default:
+                Mensagem.ExibirFracasso("Digite uma opção válida! ");
+                Thread.Sleep(1000);
+                return;
+        }
         ExibirSecao("Extrato");
-        List<DadosTransacoes> transacoes = LinqFilter.FiltrarExtratoPorDia(conta.Conta);
         foreach (var transacao in transacoes)
         {
             Console.WriteLine();
@@ -38,5 +63,6 @@ internal class MenuExtrato : Menu
             }
             
         }
+        
     }
 }
