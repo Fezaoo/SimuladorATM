@@ -9,6 +9,7 @@ internal class MenuExtrato : Menu
     public override void Execute(DadosConta conta)
     {
         base.Execute(conta);
+        Console.Clear();
         List<DadosTransacoes> transacoes;
         Console.WriteLine();
         Console.WriteLine("Escolha uma opção: ");
@@ -16,8 +17,7 @@ internal class MenuExtrato : Menu
         Console.WriteLine("[1] Exibir todo extrato");
         Console.WriteLine("[2] Exibir hoje");
         Console.WriteLine("[3] Dia específico");
-        Console.WriteLine("Sua opção: ");
-        int option = Convert.ToInt32(Console.ReadLine());
+        int option = Input.OpcaoNumerica();
         switch (option)
         {
             case 0:
@@ -34,7 +34,9 @@ internal class MenuExtrato : Menu
                 break;
 
             case 3:
-                transacoes = LinqFilter.FiltrarExtratoPorConta(conta.Conta);
+                Console.Write("Digite o dia em que quer pesquisar o extrato: ");
+                string data = Console.ReadLine();
+                transacoes = LinqFilter.FiltrarExtratoPorDia(conta.Conta, data);
 
                 break;
 

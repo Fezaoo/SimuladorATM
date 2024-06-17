@@ -22,8 +22,7 @@ internal class MenuOpcoesLogado : Menu
         Console.WriteLine("[3] Transferência Bancária");
         Console.WriteLine("[0] Sair");
 
-        Console.Write("Opção: ");
-        int option = Convert.ToInt32(Console.ReadLine());
+        int option = Input.OpcaoNumerica();
         switch (option)
         {
 
@@ -44,16 +43,19 @@ internal class MenuOpcoesLogado : Menu
                 menus[3].Execute(conta);
 
                 break;
-
             default:
-                Console.WriteLine("Digite uma opção válida! ");
-                Thread.Sleep(4000);
+                Mensagem.ExibirFracasso("Digite uma opção válida! ");
+                Thread.Sleep(2000);
                 break;
         }
-        if (option != 0)
+        if (option > 0 && option < 4)
         {
             Console.Write("Aperte uma tecla para Voltar ao menu da conta");
             Console.ReadKey();
+            Execute(conta.Conta);
+        }
+        else if (option != 0)
+        {
             Execute(conta.Conta);
         }
     }

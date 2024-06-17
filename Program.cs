@@ -23,22 +23,7 @@ void ExibirMenuInicial()
     Console.WriteLine("[2] Criar uma Conta");
     Console.WriteLine("[3] Entrar ");
     Console.WriteLine("[0] Sair");
-    string res;
-    while (true) 
-    { 
-        Console.Write("Opção: ");
-        res = Console.ReadLine()!;
-        if (res == "" || !res.Any(char.IsDigit))
-        {
-            Mensagem.ExibirFracasso("Digite uma opção válida! ");
-            Thread.Sleep(3000);
-        }
-        else if (res.All(char.IsDigit))
-        {
-            break;
-        }
-    }
-    int option = Convert.ToInt32(res);
+    int option = Input.OpcaoNumerica();
     
     switch (option)
     {
@@ -61,7 +46,7 @@ void ExibirMenuInicial()
 
         default:
             Mensagem.ExibirFracasso("Digite uma opção válida! ");
-            Thread.Sleep(4000);
+            Thread.Sleep(2000);
             break;
     }
     if (option != 0 && option != 3) 
@@ -70,7 +55,7 @@ void ExibirMenuInicial()
         Console.ReadKey();
         ExibirMenuInicial(); 
     }
-    if (option == 3)
+    else if (option == 3)
     {
         ExibirMenuInicial();
     }
