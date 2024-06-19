@@ -26,17 +26,17 @@ internal class MenuExtrato : Menu
                 return;
 
             case 1:
-                transacoes = LinqFilter.FiltrarExtratoPorConta(conta.Conta);
+                transacoes = LinqFilter.FiltrarExtratoPorConta(conta.Conta!);
                 break;
 
             case 2:
-                transacoes = LinqFilter.FiltrarExtratoPorHoje(conta.Conta);
+                transacoes = LinqFilter.FiltrarExtratoPorHoje(conta.Conta!);
                 break;
 
             case 3:
-                Console.Write("Digite o dia em que quer pesquisar o extrato: ");
-                string data = Console.ReadLine();
-                transacoes = LinqFilter.FiltrarExtratoPorDia(conta.Conta, data);
+                Console.Write("Digite o dia ou hora em que quer pesquisar o extrato: ");
+                string data = Console.ReadLine()!;
+                transacoes = LinqFilter.FiltrarExtratoPorDia(conta.Conta!, data);
 
                 break;
 

@@ -17,11 +17,11 @@ internal class MenuTransferencia : Menu
         if (contas.ContainsKey(nContaDestino))
         {
             Console.Write("Insira o valor que deseja depositar: ");
-            double valor = Convert.ToInt32(Console.ReadLine());
+            double valor = Convert.ToDouble(Console.ReadLine());
             if (conta.Saldo >= valor)
             {
-                contas[nContaDestino].Saldo += valor;
-                contas[conta.Conta].Saldo -= valor;
+                contas[nContaDestino].Deposito(valor);
+                contas[conta.Conta!].Sacar(valor);
                 DadosTransacoes Transacao = new DadosTransacoes
                 {
                     NTransacao = "",
@@ -38,6 +38,11 @@ internal class MenuTransferencia : Menu
             {
                 Mensagem.ExibirFracasso("Você não possui saldo suficiente para esta transação!");
             }
+        }
+        else
+        {
+            Mensagem.ExibirFracasso("Nenhuma conta foi encontrada! ");
+            Thread.Sleep(2000);
         }
 
     }

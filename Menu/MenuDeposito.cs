@@ -19,9 +19,8 @@ internal class MenuDeposito : Menu
             DadosConta contaAcessada = contas[conta];
             Console.Write("Quanto deseja depositar? ");
             double valor = Convert.ToInt32(Console.ReadLine());
-            double novoSaldo = valor + contaAcessada.Saldo;
-            contas[conta].Saldo = novoSaldo;
-            DadosTransacoes Transacao = new DadosTransacoes
+            contas[conta].Deposito(valor);
+            DadosTransacoes Transacao = new()
             {
                 NTransacao = "",
                 Valor = valor,

@@ -26,17 +26,18 @@ internal class MenuEntrarNaConta : Menu
                 Console.WriteLine("Acessando Conta.....");
                 Thread.Sleep(2000);
                 MenuOpcoesLogado menuLogado = new MenuOpcoesLogado();
-                menuLogado.Execute(contaAcessada.Conta);
+                menuLogado.Execute(contaAcessada.Conta!);
             }
             else 
             {
                 Mensagem.ExibirFracasso("Conta ou Senha incorreta");
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
             }
         }
         else 
         {
-            Console.WriteLine("Nenhuma conta foi encontrada! ");
+            Mensagem.ExibirFracasso("Nenhuma conta foi encontrada! ");
+            Thread.Sleep(2000);
         }
 
 

@@ -55,16 +55,14 @@ internal class MenuCriarConta : Menu
             Titular = nome,
             Senha = senha,
             Agencia = "1",
-            Saldo = 0,
             Conta = nConta
         });
         try
         {
             string newjson = JsonSerializer.Serialize(json, options);
             File.WriteAllText(path, newjson);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Conta criado com Sucesso!");
-            Console.ForegroundColor = corOriginalTexto;
+            Mensagem.ExibirSucesso("Conta criado com Sucesso!");
+            
             
         }
         catch
