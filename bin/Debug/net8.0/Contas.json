@@ -1,37 +1,3 @@
 {
-  "55255": {
-    "titular": "Felipe",
-    "senha": "1234",
-    "saldo": -200,
-    "agencia": "1",
-    "conta": "55255"
-  },
-  "30126": {
-    "titular": "João",
-    "senha": "1231",
-    "saldo": 2000,
-    "agencia": "1",
-    "conta": "30126"
-  },
-  "40456": {
-    "titular": "Jonas",
-    "senha": "1231",
-    "saldo": 0,
-    "agencia": "1",
-    "conta": "40456"
-  },
-  "82364": {
-    "titular": "Podro",
-    "senha": "1231",
-    "saldo": 0,
-    "agencia": "1",
-    "conta": "82364"
-  },
-  "70810": {
-    "titular": "poasd",
-    "senha": "1231",
-    "saldo": 0,
-    "agencia": "1",
-    "conta": "70810"
-  }
+
 }

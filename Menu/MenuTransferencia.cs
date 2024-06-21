@@ -7,14 +7,13 @@ internal class MenuTransferencia : Menu
 {
     public override void Execute(DadosConta conta)
     {
-        base.Execute();
-        Dictionary<string, DadosConta> contas = RegistroDeContas.ObterRegistroDadosContas();
-        ExibirTitulo(conta.Titular!);
+        base.Execute(conta);
+        var contas = RegistroDeContas.ObterRegistroDadosContas();
         ExibirSecao("Transferência");
         Console.WriteLine();
         Console.Write("Digite a conta que você quer transferir: ");
         string nContaDestino = Console.ReadLine()!;
-        if (contas.ContainsKey(nContaDestino))
+        if (contas.ContainsKey(nContaDestino) && nContaDestino != conta.Conta)
         {
             Console.Write("Insira o valor que deseja depositar: ");
             double valor = Convert.ToDouble(Console.ReadLine());
@@ -38,6 +37,11 @@ internal class MenuTransferencia : Menu
             {
                 Mensagem.ExibirFracasso("Você não possui saldo suficiente para esta transação!");
             }
+        }
+        else if (conta.Conta == nContaDestino)
+        {
+            Mensagem.ExibirFracasso("Você não pode transferir para si mesmo! ");
+            Thread.Sleep(2000);
         }
         else
         {

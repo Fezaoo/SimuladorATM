@@ -1,10 +1,12 @@
 ﻿using SimuladorATM.Funcoes;
 using SimuladorATM.Menu;
 
-Dictionary<int,Menu>menus = new();
-menus.Add(1, new MenuDeposito());
-menus.Add(2, new MenuCriarConta());
-menus.Add(3, new MenuEntrarNaConta());
+Dictionary<int,Menu>menus = new()
+{
+    { 1, new MenuDeposito() },
+    { 2, new MenuCriarConta() },
+    { 3, new MenuEntrarNaConta() }
+};
 
 void ExibirMenuInicial()
 {
@@ -13,7 +15,7 @@ void ExibirMenuInicial()
     Console.WriteLine(@"
 ░█████╗░████████╗███╗░░░███╗
 ██╔══██╗╚══██╔══╝████╗░████║
-███████║░░░██║░░░██╔████╔██║
+███████║░░░██║░░░██╔████╔██║\
 ██╔══██║░░░██║░░░██║╚██╔╝██║
 ██║░░██║░░░██║░░░██║░╚═╝░██║
 ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░╚═╝");

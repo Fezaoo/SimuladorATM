@@ -13,6 +13,7 @@ internal class MenuOpcoesLogado : Menu
         menus.Add(1, new MenuExtrato());
         menus.Add(2, new MenuConsultarSaldo());
         menus.Add(3, new MenuTransferencia());
+        menus.Add(4, new MenuSacar());
         Console.Clear();
         MenuOpcoesLogado.ExibirTitulo(conta.Titular!);
         Console.WriteLine();
@@ -20,6 +21,7 @@ internal class MenuOpcoesLogado : Menu
         Console.WriteLine("[1] Extrato");
         Console.WriteLine("[2] Consultar Saldo");
         Console.WriteLine("[3] Transferência Bancária");
+        Console.WriteLine("[4] Sacar Dinheiro");
         Console.WriteLine("[0] Sair");
 
         int option = Input.OpcaoNumerica();
@@ -43,21 +45,26 @@ internal class MenuOpcoesLogado : Menu
                 menus[3].Execute(conta);
 
                 break;
+            case 4:
+                menus[4].Execute(conta);
+
+                break;
             default:
                 Mensagem.ExibirFracasso("Digite uma opção válida! ");
                 Thread.Sleep(2000);
                 break;
         }
-        if (option > 0 && option < 4)
+        if (option > 0 && option < 5)
         {
             Console.Write("Aperte uma tecla para Voltar ao menu da conta");
             Console.ReadKey();
-            Execute(conta.Conta);
+            Execute(conta.Conta!);
         }
         else if (option != 0)
         {
-            Execute(conta.Conta);
+            Execute(conta.Conta!);
         }
     }
 
 }
+
