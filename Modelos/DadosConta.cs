@@ -1,21 +1,24 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SimuladorATM.Modelos;
 
 internal class DadosConta
 {
+    [Key]
+    public int Conta
+    {
+        get; set;
+    }
 
-    [JsonPropertyName("titular")]
     public string? Titular { get; set; }
 
-    [JsonPropertyName("senha")]
     public string? Senha
     {
         get { return _senha; }
         set { _senha = value!; }
     }
     private string? _senha;
-    [JsonPropertyName("saldo")]
     public double Saldo 
     { 
         get { return _saldo; } 
@@ -23,10 +26,7 @@ internal class DadosConta
     }
     private double _saldo;
 
-    [JsonPropertyName("agencia")]
     public string? Agencia { get; set; }
-    [JsonPropertyName("conta")]
-    public string? Conta { get; set; }
 
     public void Deposito(double novoSaldo)
     {

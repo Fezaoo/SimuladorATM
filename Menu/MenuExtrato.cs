@@ -24,19 +24,18 @@ internal class MenuExtrato : Menu
                 Console.WriteLine("Saindo...");
                 Thread.Sleep(1500);
                 return;
-
             case 1:
-                transacoes = LinqFilter.FiltrarExtratoPorConta(conta.Conta!);
+                transacoes = LinqFilter.FiltrarExtratoPorConta(Convert.ToString(conta.Conta!));
                 break;
 
             case 2:
-                transacoes = LinqFilter.FiltrarExtratoPorHoje(conta.Conta!);
+                transacoes = LinqFilter.FiltrarExtratoPorHoje(Convert.ToString(conta.Conta!));
                 break;
 
             case 3:
                 Console.Write("Digite o dia ou hora em que quer pesquisar o extrato: ");
                 string data = Console.ReadLine()!;
-                transacoes = LinqFilter.FiltrarExtratoPorDia(conta.Conta!, data);
+                transacoes = LinqFilter.FiltrarExtratoPorDia(Convert.ToString(conta.Conta!), data);
 
                 break;
 
@@ -51,7 +50,7 @@ internal class MenuExtrato : Menu
             Console.WriteLine();
             Console.WriteLine($"Data: {transacao.Data}");
             Console.WriteLine($"Tipo: {transacao.Tipo}");
-            if (transacao.ContaOrigem == conta.Conta)
+            if (transacao.ContaOrigem == Convert.ToString(conta.Conta!))
             {
                 Console.Write($"Valor: ");
                 Mensagem.ExibirFracasso((transacao.Valor * -1).ToString());

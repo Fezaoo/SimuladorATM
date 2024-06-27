@@ -1,9 +1,10 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
 
 namespace SimuladorATM.Menu;
 
-internal class Menu
+internal abstract class Menu
 {
     public static void ExibirTitulo(string titulo)
     {
@@ -21,6 +22,7 @@ internal class Menu
         Console.Clear();
         ExibirTitulo(conta.Titular!);
     }
+    public virtual void Execute(ContaDAL contaDAL) { }
     public virtual void Execute(string conta)
     {
         Console.Clear();

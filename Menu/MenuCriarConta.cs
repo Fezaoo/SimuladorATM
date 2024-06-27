@@ -1,6 +1,7 @@
 ﻿using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
 using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SimuladorATM.Menu;
 
@@ -55,7 +56,7 @@ internal class MenuCriarConta : Menu
             Titular = nome,
             Senha = senha,
             Agencia = "1",
-            Conta = nConta
+            Conta = Convert.ToInt32(nConta)
         });
         try
         {

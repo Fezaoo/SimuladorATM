@@ -13,20 +13,20 @@ internal class MenuTransferencia : Menu
         Console.WriteLine();
         Console.Write("Digite a conta que você quer transferir: ");
         string nContaDestino = Console.ReadLine()!;
-        if (contas.ContainsKey(nContaDestino) && nContaDestino != conta.Conta)
+        if (contas.ContainsKey(nContaDestino) && nContaDestino != Convert.ToString(conta.Conta!))
         {
             Console.Write("Insira o valor que deseja depositar: ");
             double valor = Convert.ToDouble(Console.ReadLine());
             if (conta.Saldo >= valor)
             {
                 contas[nContaDestino].Deposito(valor);
-                contas[conta.Conta!].Sacar(valor);
+                contas[Convert.ToString(conta.Conta!)].Sacar(valor);
                 DadosTransacoes Transacao = new DadosTransacoes
                 {
                     NTransacao = "",
                     Valor = valor,
                     ContaDestino = nContaDestino,
-                    ContaOrigem = conta.Conta,
+                    ContaOrigem = Convert.ToString(conta.Conta!),
                     Tipo = "Transferência bancária"
                 };
                 bool res = RegistroDeContas.EscreverNovoRegistro(contas, Transacao);
@@ -38,7 +38,7 @@ internal class MenuTransferencia : Menu
                 Mensagem.ExibirFracasso("Você não possui saldo suficiente para esta transação!");
             }
         }
-        else if (conta.Conta == nContaDestino)
+        else if (Convert.ToString(conta.Conta!) == nContaDestino)
         {
             Mensagem.ExibirFracasso("Você não pode transferir para si mesmo! ");
             Thread.Sleep(2000);
