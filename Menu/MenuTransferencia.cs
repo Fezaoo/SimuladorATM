@@ -20,7 +20,7 @@ internal class MenuTransferencia : Menu
             if (conta.Saldo >= valor)
             {
                 contas[nContaDestino].Deposito(valor);
-                contas[Convert.ToString(conta.Conta!)].Sacar(valor);
+                contas[Convert.ToString(conta.Conta!)].Saque(valor);
                 DadosTransacoes Transacao = new DadosTransacoes
                 {
                     NTransacao = "",

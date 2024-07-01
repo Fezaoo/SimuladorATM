@@ -1,5 +1,4 @@
-﻿using SimuladorATM.Funcoes;
-using SimuladorATM.Modelos;
+﻿using SimuladorATM.Modelos;
 
 namespace SimuladorATM.Banco;
 

@@ -14,7 +14,7 @@ internal class MenuSacar : Menu
         double valor = Convert.ToDouble(Console.ReadLine());
         if (conta.Saldo >= valor)
         {
-            contas[Convert.ToString(conta.Conta!)].Sacar(valor);
+            contas[Convert.ToString(conta.Conta!)].Saque(valor);
             DadosTransacoes Transacao = new DadosTransacoes
             {
                 NTransacao = "",

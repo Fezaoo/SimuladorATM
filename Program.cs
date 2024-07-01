@@ -38,7 +38,7 @@ void ExibirMenuInicial()
             break;
 
         case 1:
-            menus[1].Execute();
+            menus[1].Execute(contaDAL);
             break;
 
         case 2:

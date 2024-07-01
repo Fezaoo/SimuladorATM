@@ -39,7 +39,7 @@ internal class DadosConta
             throw new ArgumentException("A quantia deve ser maior que zero.");
         }
     }
-    public void Sacar(double valor)
+    public void Saque(double valor)
     {
         if (valor > 0 && valor <= _saldo)
         {
