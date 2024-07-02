@@ -38,10 +38,12 @@ internal class TransacaoService
                 if (tipoTransacao == "Saque")
                 {
                     conta.Saque(valor);
+                    _context.Contas.Update(conta);
                 }
                 else if (tipoTransacao == "Deposito")
                 {
                     conta.Deposito(valor);
+                    _context.Contas.Update(conta);
                 }
 
                 var transacao = new DadosTransacao()
@@ -51,7 +53,7 @@ internal class TransacaoService
                     Valor = valor,
                     DataHora = DateTime.Now
                 };
-                _context.DadosTransacao.Add(transacao);
+                _context.Transacoes.Add(transacao);
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
                 return true;

@@ -1,9 +1,10 @@
-﻿namespace SimuladorATM.Modelos;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SimuladorATM.Modelos;
 
 internal class DadosTransacao
 {
-
-
+    [Key]
     public int TransacaoID { get; set; }
     public int ContaID { get; set; }
     public string? TipoTransacao { get; set; }

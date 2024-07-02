@@ -19,13 +19,13 @@ internal class MenuDeposito : Menu
             var conta = contaDAL.Consultar(nConta);
             double valor = Input.VerificacaoDouble("Quanto deseja depositar? ");
             var transacao = new TransacaoService(new SimuladorATMContext());
-            var result = transacao.RealizarTransacaoAsync(conta!.Conta, "Deposito", valor);
+            var result = transacao.RealizarTransacaoAsync(conta!.ContaID, "Deposito", valor);
             if (result.Result) { Mensagem.ExibirSucesso("Depósito realizado com sucesso!"); }
             else { Mensagem.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
         }
         else
         {
-            Console.WriteLine("Nenhuma conta foi encontrada! ");
+            Mensagem.ExibirFracasso("Nenhuma conta foi encontrada! ");
         }
     }
 }

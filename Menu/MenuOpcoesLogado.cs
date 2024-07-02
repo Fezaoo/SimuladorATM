@@ -58,11 +58,11 @@ internal class MenuOpcoesLogado : Menu
         {
             Console.Write("Aperte uma tecla para Voltar ao menu da conta");
             Console.ReadKey();
-            Execute(Convert.ToString(conta.Conta!));
+            Execute(Convert.ToString(conta.ContaID!));
         }
         else if (option != 0)
         {
-            Execute(Convert.ToString(conta.Conta!));
+            Execute(Convert.ToString(conta.ContaID!));
         }
     }
 

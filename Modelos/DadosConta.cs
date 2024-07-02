@@ -6,7 +6,7 @@ namespace SimuladorATM.Modelos;
 internal class DadosConta
 {
     [Key]
-    public int Conta
+    public int ContaID
     {
         get; set;
     }

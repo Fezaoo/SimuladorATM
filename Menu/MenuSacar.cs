@@ -14,13 +14,13 @@ internal class MenuSacar : Menu
         double valor = Convert.ToDouble(Console.ReadLine());
         if (conta.Saldo >= valor)
         {
-            contas[Convert.ToString(conta.Conta!)].Saque(valor);
+            contas[Convert.ToString(conta.ContaID!)].Saque(valor);
             DadosTransacoes Transacao = new DadosTransacoes
             {
                 NTransacao = "",
                 Valor = valor,
                 ContaDestino = null,
-                ContaOrigem = Convert.ToString(conta.Conta!),
+                ContaOrigem = Convert.ToString(conta.ContaID!),
                 Tipo = "Saque"
             };
             bool res = RegistroDeContas.EscreverNovoRegistro(contas, Transacao);

@@ -54,7 +54,7 @@ void ExibirMenuInicial()
                 Titular = "Claudio",
                 Senha = "1234",
                 Agencia = "1",
-                Conta = 10004
+                ContaID = 10004
             };
             Console.WriteLine(contaDAL.Existe(conta));
             break;

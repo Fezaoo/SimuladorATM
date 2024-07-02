@@ -10,8 +10,6 @@ internal class MenuCriarConta : Menu
     public override void Execute()
     {
         base.Execute();
-        ConsoleColor corOriginalTexto = Console.ForegroundColor;
-        ConsoleColor corOriginalFundo = Console.BackgroundColor;
         Dictionary<string, DadosConta> json = RegistroDeContas.ObterRegistroDadosContas();
         string path = @"C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\bin\Debug\net8.0\Contas.json";
         var options = new JsonSerializerOptions
@@ -56,7 +54,7 @@ internal class MenuCriarConta : Menu
             Titular = nome,
             Senha = senha,
             Agencia = "1",
-            Conta = Convert.ToInt32(nConta)
+            ContaID = Convert.ToInt32(nConta)
         });
         try
         {

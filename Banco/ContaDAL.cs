@@ -12,34 +12,34 @@ internal class ContaDAL
 
     public void Adicionar(DadosConta conta)
     {
-        context.DadosContas.Add(conta);
+        context.Contas.Add(conta);
         context.SaveChanges();
     }
     public void Atualizar(DadosConta conta)
     {
-        context.DadosContas.Update(conta);
+        context.Contas.Update(conta);
         context.SaveChanges();
     }
     public void Deletar(DadosConta conta)
     {
-        context.DadosContas.Update(conta);
+        context.Contas.Update(conta);
         context.SaveChanges();
     }
     public DadosConta? Consultar(int conta)
     {
-        return context.DadosContas.Find(conta);
+        return context.Contas.Find(conta);
     }
     public DadosConta? Consultar(DadosConta conta)
     {
-        return context.DadosContas.Find(conta.Conta);
+        return context.Contas.Find(conta.ContaID);
     }
     public bool Existe(DadosConta conta)
     {
-        return context.DadosContas.Find(conta.Conta) is not null;
+        return context.Contas.Find(conta.ContaID) is not null;
     }
     public bool Existe(int conta)
     {
-        return context.DadosContas.Find(conta) is not null;
+        return context.Contas.Find(conta) is not null;
     }
 
 }
