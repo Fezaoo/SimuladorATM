@@ -10,10 +10,12 @@ internal class ContaDAL
         this.context = context;
     }
 
-    public void Adicionar(DadosConta conta)
+    public DadosConta Adicionar(DadosConta conta)
     {
-        context.Contas.Add(conta);
+        var novaInstancia = conta;
+        context.Contas.Add(novaInstancia);
         context.SaveChanges();
+        return novaInstancia;
     }
     public void Atualizar(DadosConta conta)
     {

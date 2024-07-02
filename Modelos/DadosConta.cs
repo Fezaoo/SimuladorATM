@@ -28,6 +28,15 @@ internal class DadosConta
 
     public string? Agencia { get; set; }
 
+    public DadosConta(string titular, string senha)
+    {
+        Titular = titular;
+        Senha = senha;
+        Saldo = 0;
+        Agencia = "1";
+    }
+
+
     public void Deposito(double novoSaldo)
     {
         if (novoSaldo > 0)

@@ -1,4 +1,5 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
@@ -7,17 +8,10 @@ namespace SimuladorATM.Menu;
 
 internal class MenuCriarConta : Menu
 {
-    public override void Execute()
+    public override void Execute(ContaDAL contaDAL)
     {
         base.Execute();
         Dictionary<string, DadosConta> json = RegistroDeContas.ObterRegistroDadosContas();
-        string path = @"C:\Users\fegui\OneDrive\Área de Trabalho\Curso em Vídeo\C#\Projetos\SimuladorATM\SimuladorATM\bin\Debug\net8.0\Contas.json";
-        var options = new JsonSerializerOptions
-        {
-            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-            WriteIndented = true
-        };
-
         ExibirTitulo("Criar Conta");
         Console.WriteLine();
         ExibirSecao("FORMULÁRIO");
@@ -37,32 +31,11 @@ internal class MenuCriarConta : Menu
             else if (senha == "999") { return; }
             else { Mensagem.ExibirFracasso("Digite uma senha com 4 dígitos Apenas números "); }
         }
-        string nConta = "";
-        while (true)
-        {
-            Random random = new();
-            for (int i = 0; i < 5; i++)
-            {
-                nConta += Convert.ToString(random.Next(9));
-            }
-            if (!json.ContainsKey(Convert.ToString(nConta)!)) { break; }
-        }
-
-        Console.WriteLine($"Sua conta possui número de conta: {nConta}");
-        json.Add(nConta, new DadosConta
-        {
-            Titular = nome,
-            Senha = senha,
-            Agencia = "1",
-            ContaID = Convert.ToInt32(nConta)
-        });
         try
         {
-            string newjson = JsonSerializer.Serialize(json, options);
-            File.WriteAllText(path, newjson);
+            var conta = contaDAL.Adicionar(new DadosConta(nome, senha));
             Mensagem.ExibirSucesso("Conta criado com Sucesso!");
-            
-            
+            Console.WriteLine($"O número da sua conta é: {conta.ContaID}");
         }
         catch
         {

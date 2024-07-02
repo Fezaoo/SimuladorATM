@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimuladorATM.Banco;
 
@@ -11,9 +12,11 @@ using SimuladorATM.Banco;
 namespace SimuladorATM.Migrations
 {
     [DbContext(typeof(SimuladorATMContext))]
-    partial class SimuladorATMContextModelSnapshot : ModelSnapshot
+    [Migration("20240702122849_RefatoracaoTabelaContas")]
+    partial class RefatoracaoTabelaContas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace SimuladorATM.Migrations
 
                     b.HasKey("ContaID");
 
-                    b.ToTable("Contas", (string)null);
+                    b.ToTable("Contas");
                 });
 
             modelBuilder.Entity("SimuladorATM.Modelos.DadosTransacao", b =>
@@ -69,7 +72,7 @@ namespace SimuladorATM.Migrations
 
                     b.HasKey("TransacaoID");
 
-                    b.ToTable("Transacoes", (string)null);
+                    b.ToTable("Transacoes");
                 });
 #pragma warning restore 612, 618
         }

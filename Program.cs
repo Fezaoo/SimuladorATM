@@ -42,21 +42,21 @@ void ExibirMenuInicial()
             break;
 
         case 2:
-            menus[2].Execute();
+            menus[2].Execute(contaDAL);
             break;
 
         case 3:
             menus[3].Execute();
             break;
         case 4:
-            var conta = new DadosConta()
-            {
-                Titular = "Claudio",
-                Senha = "1234",
-                Agencia = "1",
-                ContaID = 10004
-            };
-            Console.WriteLine(contaDAL.Existe(conta));
+            //var conta = new DadosConta()
+            //{
+            //    Titular = "Claudio",
+            //    Senha = "1234",
+            //    Agencia = "1",
+            //    ContaID = 10004
+            //};
+            //Console.WriteLine(contaDAL.Existe(conta));
             break;
 
         default:

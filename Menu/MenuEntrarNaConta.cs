@@ -1,4 +1,5 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
 using System.Text.Json;
 
@@ -6,7 +7,7 @@ namespace SimuladorATM.Menu;
 
 internal class MenuEntrarNaConta : Menu
 {
-    public override void Execute()
+    public override void Execute(ContaDAL contaDAL)
     {
         base.Execute();
         ExibirTitulo("Entrar na Conta");
