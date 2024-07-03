@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimuladorATM.Banco;
 
@@ -11,9 +12,11 @@ using SimuladorATM.Banco;
 namespace SimuladorATM.Migrations
 {
     [DbContext(typeof(SimuladorATMContext))]
-    partial class SimuladorATMContextModelSnapshot : ModelSnapshot
+    [Migration("20240703144536_InsertValueNotExisting")]
+    partial class InsertValueNotExisting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

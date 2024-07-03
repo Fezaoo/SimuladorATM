@@ -6,10 +6,9 @@ namespace SimuladorATM.Menu;
 
 internal class MenuConsultarSaldo: Menu
 {
-    public override void Execute(int nConta)
+    public override void Execute(int nConta, ContaDAL contaDAL)
     {
         base.Execute();
-        var contaDAL = new ContaDAL(new SimuladorATMContext());
         var conta = contaDAL.Consultar(nConta);
         Console.Write("Saldo: ");
         if (conta!.Saldo < 0)

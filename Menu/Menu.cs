@@ -21,7 +21,12 @@ internal abstract class Menu
     {
         Console.Clear();
         ExibirTitulo(conta.Titular!);
-    }    
+    }
+    public virtual void Execute(DadosConta conta, ContaDAL contaDAL)
+    {
+        Console.Clear();
+        ExibirTitulo(conta.Titular!);
+    }
     public virtual void Execute(int nConta, ContaDAL contaDAL)
     {
         Console.Clear();
@@ -31,12 +36,6 @@ internal abstract class Menu
         Console.Clear();
     }
     public virtual void Execute(ContaDAL contaDAL) { }
-    public virtual void Execute(string conta)
-    {
-        Console.Clear();
-        Dictionary<string, DadosConta> contas = RegistroDeContas.ObterRegistroDadosContas();
-        ExibirTitulo(contas[conta].Titular!);
-    }
     public virtual void ExibirSecao(string titulo)
     {
         string divisor = string.Empty.PadLeft(titulo.Length, '-');

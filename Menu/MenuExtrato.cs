@@ -1,6 +1,5 @@
 ﻿using SimuladorATM.Banco;
 using SimuladorATM.Funcoes;
-using SimuladorATM.Linq;
 using SimuladorATM.Modelos;
 
 namespace SimuladorATM.Menu;
@@ -53,7 +52,7 @@ internal class MenuExtrato : Menu
             Console.WriteLine();
             Console.WriteLine($"Data: {transacao.DataHora}");
             Console.WriteLine($"Tipo: {transacao.TipoTransacao}");
-            if (transacao.ContaOrigemID == conta.ContaID)
+            if (transacao.ContaOrigemID == conta.ContaID || transacao.TipoTransacao == "Saque")
             {
                 Console.Write($"Valor: ");
                 Mensagem.ExibirFracasso((transacao.Valor * -1).ToString());

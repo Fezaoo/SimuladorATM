@@ -43,5 +43,4 @@ internal class ContaDAL
     {
         return context.Contas.Find(conta) is not null;
     }
-
 }

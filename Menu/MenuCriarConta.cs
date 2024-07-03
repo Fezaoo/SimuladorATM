@@ -9,7 +9,6 @@ internal class MenuCriarConta : Menu
     public override void Execute(ContaDAL contaDAL)
     {
         base.Execute();
-        Dictionary<string, DadosConta> json = RegistroDeContas.ObterRegistroDadosContas();
         ExibirTitulo("Criar Conta");
         Console.WriteLine();
         ExibirSecao("FORMULÁRIO");

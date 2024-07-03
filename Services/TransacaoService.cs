@@ -16,7 +16,7 @@ internal class TransacaoService
         _context = context;
     }
 
-    public async Task<bool> RealizarTransacaoAsync(int contaId, string tipoTransacao, double valor)
+    public async Task<bool> RealizarTransacaoAsync(int contaId, string tipoTransacao, double valor, int contaOrigemID = 0)
     {
         using (var transaction = await _context.Database.BeginTransactionAsync()) 
         {
@@ -41,6 +41,7 @@ internal class TransacaoService
                     Mensagem.ExibirFracasso("Saldo Insuficiente");
                     return false;
                 }
+
                 if (tipoTransacao == "Saque")
                 {
                     transacao.ContaOrigemID = contaId;
@@ -51,6 +52,15 @@ internal class TransacaoService
                 {
                     conta.Deposito(valor);
                     _context.Contas.Update(conta);
+                }
+                else if (tipoTransacao == "Transferencia")
+                {
+                    var contaOrigem = contaDAL.Consultar(contaOrigemID);
+                    conta.Deposito(valor);
+                    contaOrigem!.Saque(valor);
+                    _context.Update(conta);
+                    _context.Update(contaOrigem);
+                    transacao.ContaOrigemID = contaOrigemID;
                 }
                 _context.Transacoes.Add(transacao);
                 await _context.SaveChangesAsync();

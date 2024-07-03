@@ -42,14 +42,14 @@ internal class Input
         int option = Convert.ToInt32(res);
         return option;
     }  
-    public static int VerificacaoInt4Digitos(string mensagem)
+    public static int VerificacaoInt2Digitos(string mensagem)
     {
         string res;
         while (true)
         {
             Console.Write(mensagem);
             res = Console.ReadLine()!;
-            if (res == "" || !res.Any(char.IsDigit) || Convert.ToInt32(res) < 0 || res.Length != 4)
+            if (res == "" || !res.Any(char.IsDigit) || Convert.ToInt32(res) < 0 || res.Length != 2)
             {
                 Mensagem.ExibirFracasso("Digite um valor válido! ");
                 Thread.Sleep(2000);
@@ -62,14 +62,14 @@ internal class Input
         int option = Convert.ToInt32(res);
         return option;
     }
-    public static int VerificacaoInt2Digitos(string mensagem)
+    public static int VerificacaoInt4Digitos(string mensagem)
     {
         string res;
         while (true)
         {
             Console.Write(mensagem);
             res = Console.ReadLine()!;
-            if (res == "" || !res.Any(char.IsDigit) || Convert.ToInt32(res) < 0 || res.Length != 2)
+            if (res == "" || !res.Any(char.IsDigit) || Convert.ToInt32(res) < 0 || res.Length != 4)
             {
                 Mensagem.ExibirFracasso("Digite um valor válido! ");
                 Thread.Sleep(2000);
