@@ -6,8 +6,9 @@ namespace SimuladorATM.Menu;
 
 internal class MenuOpcoesLogado : Menu
 {
-    public void Execute(int nConta, ContaDAL contaDAL)
+    public override void Execute(int nConta)
     {
+        var contaDAL = new ContaDAL(new SimuladorATMContext());
         var conta = contaDAL.Consultar(nConta);
         Dictionary<int, Menu> menus = new();
         menus.Add(1, new MenuExtrato());
@@ -38,7 +39,7 @@ internal class MenuOpcoesLogado : Menu
                 break;
 
             case 2:
-                menus[2].Execute(conta);
+                menus[2].Execute(conta.ContaID);
                 break;
 
             case 3:
@@ -58,11 +59,11 @@ internal class MenuOpcoesLogado : Menu
         {
             Console.Write("Aperte uma tecla para Voltar ao menu da conta");
             Console.ReadKey();
-            Execute(conta.ContaID!, contaDAL);
+            Execute(conta.ContaID!);
         }
         else if (option != 0)
         {
-            Execute(conta.ContaID!, contaDAL);
+            Execute(conta.ContaID!);
         }
     }
 

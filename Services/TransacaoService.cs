@@ -22,9 +22,15 @@ internal class TransacaoService
         {
             try
             {
-
                 var contaDAL = new ContaDAL(new SimuladorATMContext());
                 var conta = contaDAL.Consultar(contaId);
+                var transacao = new DadosTransacao()
+                {
+                    ContaID = contaId,
+                    TipoTransacao = tipoTransacao,
+                    Valor = valor,
+                    DataHora = DateTime.Now
+                };
                 if (conta == null)
                 {
                     Mensagem.ExibirFracasso("Conta não encontrada");
@@ -37,6 +43,7 @@ internal class TransacaoService
                 }
                 if (tipoTransacao == "Saque")
                 {
+                    transacao.ContaOrigemID = contaId;
                     conta.Saque(valor);
                     _context.Contas.Update(conta);
                 }
@@ -45,14 +52,6 @@ internal class TransacaoService
                     conta.Deposito(valor);
                     _context.Contas.Update(conta);
                 }
-
-                var transacao = new DadosTransacao()
-                {
-                    ContaID = contaId,
-                    TipoTransacao = tipoTransacao,
-                    Valor = valor,
-                    DataHora = DateTime.Now
-                };
                 _context.Transacoes.Add(transacao);
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();

@@ -21,6 +21,14 @@ internal abstract class Menu
     {
         Console.Clear();
         ExibirTitulo(conta.Titular!);
+    }    
+    public virtual void Execute(int nConta, ContaDAL contaDAL)
+    {
+        Console.Clear();
+    }
+    public virtual void Execute(int nConta)
+    {
+        Console.Clear();
     }
     public virtual void Execute(ContaDAL contaDAL) { }
     public virtual void Execute(string conta)

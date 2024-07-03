@@ -24,7 +24,7 @@ internal class MenuEntrarNaConta : Menu
                 Console.WriteLine("Acessando Conta.....");
                 Thread.Sleep(2000);
                 MenuOpcoesLogado menuLogado = new MenuOpcoesLogado();
-                menuLogado.Execute(contaAcessada.ContaID, contaDAL);
+                menuLogado.Execute(contaAcessada.ContaID);
             }
             else 
             {

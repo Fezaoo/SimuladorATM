@@ -1,8 +1,6 @@
 ﻿using SimuladorATM.Banco;
 using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
-using System.Text.Json;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace SimuladorATM.Menu;
 

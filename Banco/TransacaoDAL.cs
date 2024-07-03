@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SimuladorATM.Banco
 {
-    internal class TransacoesDAL 
+    internal class TransacaoDAL 
     {
         private readonly SimuladorATMContext _context;
-        public TransacoesDAL(SimuladorATMContext context)
+        public TransacaoDAL(SimuladorATMContext context)
         {
             _context = context;
         }

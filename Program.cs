@@ -10,10 +10,10 @@ Dictionary<int,Menu>menus = new()
     { 3, new MenuEntrarNaConta() }
 };
 
-var contaDAL = new ContaDAL(new SimuladorATMContext());
 
 void ExibirMenuInicial()
 {
+    var contaDAL = new ContaDAL(new SimuladorATMContext());
     Console.Clear();
 
     Console.WriteLine(@"
@@ -47,16 +47,6 @@ void ExibirMenuInicial()
 
         case 3:
             menus[3].Execute(contaDAL);
-            break;
-        case 4:
-            //var conta = new DadosConta()
-            //{
-            //    Titular = "Claudio",
-            //    Senha = "1234",
-            //    Agencia = "1",
-            //    ContaID = 10004
-            //};
-            //Console.WriteLine(contaDAL.Existe(conta));
             break;
 
         default:

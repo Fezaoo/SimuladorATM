@@ -11,8 +11,8 @@ internal class MenuExtrato : Menu
     {
         base.Execute(conta);
         Console.Clear();
-        List<DadosTransacao> transacoes = new();
-        var transacoesDAL = new TransacoesDAL(new SimuladorATMContext());
+        List<DadosTransacao> transacoes;
+        var transacoesDAL = new TransacaoDAL(new SimuladorATMContext());
         Console.WriteLine();
         Console.WriteLine("Escolha uma opção: ");
         Console.WriteLine("[0] Sair");
