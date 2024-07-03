@@ -1,4 +1,5 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Linq;
 using SimuladorATM.Modelos;
 
@@ -10,7 +11,8 @@ internal class MenuExtrato : Menu
     {
         base.Execute(conta);
         Console.Clear();
-        List<DadosTransacoes> transacoes;
+        List<DadosTransacao> transacoes = new();
+        var transacoesDAL = new TransacoesDAL(new SimuladorATMContext());
         Console.WriteLine();
         Console.WriteLine("Escolha uma opção: ");
         Console.WriteLine("[0] Sair");
@@ -25,18 +27,19 @@ internal class MenuExtrato : Menu
                 Thread.Sleep(1500);
                 return;
             case 1:
-                transacoes = LinqFilter.FiltrarExtratoPorConta(Convert.ToString(conta.ContaID!));
+                transacoes = transacoesDAL.ConsultarExtratoPorConta(conta);
                 break;
 
             case 2:
-                transacoes = LinqFilter.FiltrarExtratoPorHoje(Convert.ToString(conta.ContaID!));
+                transacoes = transacoesDAL.ConsultarExtratoPorHoje(conta);
                 break;
 
             case 3:
-                Console.Write("Digite o dia ou hora em que quer pesquisar o extrato: ");
-                string data = Console.ReadLine()!;
-                transacoes = LinqFilter.FiltrarExtratoPorDia(Convert.ToString(conta.ContaID!), data);
-
+                var data = new int[3];
+                data[0] = Input.VerificacaoInt2Digitos("Digite o dia em que quer pesquisar o extrato: [dd] ");
+                data[1] = Input.VerificacaoInt2Digitos("Digite o mês em que quer pesquisar o extrato: [mm] ");
+                data[2] = Input.VerificacaoInt4Digitos("Digite o ano em que quer pesquisar o extrato: [aaaa] ");
+                transacoes = transacoesDAL.ConsultarExtratoPorDia(conta, data);
                 break;
 
             default:
@@ -48,19 +51,19 @@ internal class MenuExtrato : Menu
         foreach (var transacao in transacoes)
         {
             Console.WriteLine();
-            Console.WriteLine($"Data: {transacao.Data}");
-            Console.WriteLine($"Tipo: {transacao.Tipo}");
-            if (transacao.ContaOrigem == Convert.ToString(conta.ContaID!))
+            Console.WriteLine($"Data: {transacao.DataHora}");
+            Console.WriteLine($"Tipo: {transacao.TipoTransacao}");
+            if (transacao.ContaOrigemID == conta.ContaID)
             {
                 Console.Write($"Valor: ");
                 Mensagem.ExibirFracasso((transacao.Valor * -1).ToString());
-                Console.WriteLine($"Conta destino: {transacao.ContaDestino}");
+                Console.WriteLine($"Conta destino: {transacao.ContaID}");
             }
             else
             {
                 Console.Write($"Valor: ");
                 Mensagem.ExibirSucesso((transacao.Valor).ToString());
-                Console.WriteLine($"Conta origem: {transacao.ContaOrigem}");
+                Console.WriteLine($"Conta origem: {transacao.ContaOrigemID}");
             }
             
         }

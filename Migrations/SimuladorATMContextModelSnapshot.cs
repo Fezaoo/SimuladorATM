@@ -44,7 +44,7 @@ namespace SimuladorATM.Migrations
 
                     b.HasKey("ContaID");
 
-                    b.ToTable("Contas", (string)null);
+                    b.ToTable("Contas");
                 });
 
             modelBuilder.Entity("SimuladorATM.Modelos.DadosTransacao", b =>
@@ -69,7 +69,7 @@ namespace SimuladorATM.Migrations
 
                     b.HasKey("TransacaoID");
 
-                    b.ToTable("Transacoes", (string)null);
+                    b.ToTable("Transacoes");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,8 +12,8 @@ using SimuladorATM.Banco;
 namespace SimuladorATM.Migrations
 {
     [DbContext(typeof(SimuladorATMContext))]
-    [Migration("20240702122849_RefatoracaoTabelaContas")]
-    partial class RefatoracaoTabelaContas
+    [Migration("20240702175802_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

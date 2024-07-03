@@ -46,7 +46,7 @@ void ExibirMenuInicial()
             break;
 
         case 3:
-            menus[3].Execute();
+            menus[3].Execute(contaDAL);
             break;
         case 4:
             //var conta = new DadosConta()

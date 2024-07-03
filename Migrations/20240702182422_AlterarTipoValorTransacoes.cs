@@ -5,12 +5,18 @@
 namespace SimuladorATM.Migrations
 {
     /// <inheritdoc />
-    public partial class AlterarCampoConta : Migration
+    public partial class AlterarTipoValorTransacoes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn("Conta", "Contas", "ContaID");
+            migrationBuilder.AlterColumn<float>(
+                name:"Valor",
+                table: "Transacoes",
+                nullable: false,
+                oldClrType: typeof(decimal),
+                oldType: "decimal (10, 2)"
+                );
         }
 
         /// <inheritdoc />

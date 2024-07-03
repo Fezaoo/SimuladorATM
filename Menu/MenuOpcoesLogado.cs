@@ -1,21 +1,21 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
 
 namespace SimuladorATM.Menu;
 
 internal class MenuOpcoesLogado : Menu
 {
-    public override void Execute(string nConta)
+    public void Execute(int nConta, ContaDAL contaDAL)
     {
-        Dictionary<string, DadosConta> contas = RegistroDeContas.ObterRegistroDadosContas();
-        DadosConta conta = contas[nConta];
+        var conta = contaDAL.Consultar(nConta);
         Dictionary<int, Menu> menus = new();
         menus.Add(1, new MenuExtrato());
         menus.Add(2, new MenuConsultarSaldo());
         menus.Add(3, new MenuTransferencia());
         menus.Add(4, new MenuSacar());
         Console.Clear();
-        MenuOpcoesLogado.ExibirTitulo(conta.Titular!);
+        ExibirTitulo(conta!.Titular!);
         Console.WriteLine();
         Console.WriteLine("Selecione uma opção: ");
         Console.WriteLine("[1] Extrato");
@@ -58,11 +58,11 @@ internal class MenuOpcoesLogado : Menu
         {
             Console.Write("Aperte uma tecla para Voltar ao menu da conta");
             Console.ReadKey();
-            Execute(Convert.ToString(conta.ContaID!));
+            Execute(conta.ContaID!, contaDAL);
         }
         else if (option != 0)
         {
-            Execute(Convert.ToString(conta.ContaID!));
+            Execute(conta.ContaID!, contaDAL);
         }
     }
 

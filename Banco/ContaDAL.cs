@@ -24,7 +24,7 @@ internal class ContaDAL
     }
     public void Deletar(DadosConta conta)
     {
-        context.Contas.Update(conta);
+        context.Contas.Remove(conta);
         context.SaveChanges();
     }
     public DadosConta? Consultar(int conta)
