@@ -1,5 +1,7 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Menu;
+using SimuladorATM.Modelos;
 
 Dictionary<int,Menu>menus = new()
 {
@@ -8,14 +10,16 @@ Dictionary<int,Menu>menus = new()
     { 3, new MenuEntrarNaConta() }
 };
 
+
 void ExibirMenuInicial()
 {
+    var contaDAL = new ContaDAL(new SimuladorATMContext());
     Console.Clear();
 
     Console.WriteLine(@"
 ░█████╗░████████╗███╗░░░███╗
 ██╔══██╗╚══██╔══╝████╗░████║
-███████║░░░██║░░░██╔████╔██║\
+███████║░░░██║░░░██╔████╔██║
 ██╔══██║░░░██║░░░██║╚██╔╝██║
 ██║░░██║░░░██║░░░██║░╚═╝░██║
 ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░╚═╝");
@@ -29,21 +33,20 @@ void ExibirMenuInicial()
     
     switch (option)
     {
-
         case 0:
             Console.WriteLine("Tchau Tchau :)");
             break;
 
         case 1:
-            menus[1].Execute();
+            menus[1].Execute(contaDAL);
             break;
 
         case 2:
-            menus[2].Execute();
+            menus[2].Execute(contaDAL);
             break;
 
         case 3:
-            menus[3].Execute();
+            menus[3].Execute(contaDAL);
             break;
 
         default:

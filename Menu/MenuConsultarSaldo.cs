@@ -1,15 +1,17 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
 
 namespace SimuladorATM.Menu;
 
 internal class MenuConsultarSaldo: Menu
 {
-    public override void Execute(DadosConta conta)
+    public override void Execute(int nConta, ContaDAL contaDAL)
     {
-        base.Execute(conta);
+        base.Execute();
+        var conta = contaDAL.Consultar(nConta);
         Console.Write("Saldo: ");
-        if (conta.Saldo < 0)
+        if (conta!.Saldo < 0)
         {
             Mensagem.ExibirFracasso($" {conta.Saldo}");
         }

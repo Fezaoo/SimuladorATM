@@ -1,21 +1,24 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SimuladorATM.Modelos;
 
 internal class DadosConta
 {
+    [Key]
+    public int ContaID
+    {
+        get; set;
+    }
 
-    [JsonPropertyName("titular")]
     public string? Titular { get; set; }
 
-    [JsonPropertyName("senha")]
     public string? Senha
     {
         get { return _senha; }
         set { _senha = value!; }
     }
     private string? _senha;
-    [JsonPropertyName("saldo")]
     public double Saldo 
     { 
         get { return _saldo; } 
@@ -23,10 +26,16 @@ internal class DadosConta
     }
     private double _saldo;
 
-    [JsonPropertyName("agencia")]
     public string? Agencia { get; set; }
-    [JsonPropertyName("conta")]
-    public string? Conta { get; set; }
+
+    public DadosConta(string titular, string senha)
+    {
+        Titular = titular;
+        Senha = senha;
+        Saldo = 0;
+        Agencia = "1";
+    }
+
 
     public void Deposito(double novoSaldo)
     {
@@ -39,7 +48,7 @@ internal class DadosConta
             throw new ArgumentException("A quantia deve ser maior que zero.");
         }
     }
-    public void Sacar(double valor)
+    public void Saque(double valor)
     {
         if (valor > 0 && valor <= _saldo)
         {

@@ -1,5 +1,7 @@
-﻿using SimuladorATM.Funcoes;
+﻿using SimuladorATM.Banco;
+using SimuladorATM.Funcoes;
 using SimuladorATM.Modelos;
+using SimuladorATM.Services;
 using System.Text.Json;
 using System.Threading.Channels;
 
@@ -7,34 +9,23 @@ namespace SimuladorATM.Menu;
 
 internal class MenuDeposito : Menu
 {
-    public override void Execute()
+    public override void Execute(ContaDAL contaDAL)
     {
         base.Execute();
         ExibirTitulo("Depósito");
-        Console.Write("Numero da Conta: ");
-        string conta = Console.ReadLine()!;
-        Dictionary<string, DadosConta> contas = RegistroDeContas.ObterRegistroDadosContas();
-        if (contas.ContainsKey(conta))
+        int nConta = Input.VerificacaoInt("Numero da Conta: ");
+        if (contaDAL.Existe(nConta))
         {
-            DadosConta contaAcessada = contas[conta];
-            Console.Write("Quanto deseja depositar? ");
-            double valor = Convert.ToInt32(Console.ReadLine());
-            contas[conta].Deposito(valor);
-            DadosTransacoes Transacao = new()
-            {
-                NTransacao = "",
-                Valor = valor,
-                ContaDestino = conta,
-                ContaOrigem = null,
-                Tipo = "Depósito"
-            };
-            bool res = RegistroDeContas.EscreverNovoRegistro(contas, Transacao);
-            if (res) { Mensagem.ExibirSucesso("Depósito realizado com sucesso!"); }
+            var conta = contaDAL.Consultar(nConta);
+            double valor = Input.VerificacaoDouble("Quanto deseja depositar? ");
+            var transacao = new TransacaoService(new SimuladorATMContext());
+            var result = transacao.RealizarTransacaoAsync(conta!.ContaID, "Deposito", valor);
+            if (result.Result) { Mensagem.ExibirSucesso("Depósito realizado com sucesso!"); }
             else { Mensagem.ExibirFracasso("Ocorreu um erro ao realizar o depósito."); }
         }
         else
         {
-            Console.WriteLine("Nenhuma conta foi encontrada! ");
+            Mensagem.ExibirFracasso("Nenhuma conta foi encontrada! ");
         }
     }
 }
