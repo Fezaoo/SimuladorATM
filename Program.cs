@@ -1,7 +1,6 @@
 ﻿using SimuladorATM.Banco;
 using SimuladorATM.Funcoes;
 using SimuladorATM.Menu;
-using SimuladorATM.Modelos;
 
 Dictionary<int,Menu>menus = new()
 {

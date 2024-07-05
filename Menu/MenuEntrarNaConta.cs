@@ -1,7 +1,5 @@
 ﻿using SimuladorATM.Banco;
 using SimuladorATM.Funcoes;
-using SimuladorATM.Modelos;
-using System.Text.Json;
 
 namespace SimuladorATM.Menu;
 

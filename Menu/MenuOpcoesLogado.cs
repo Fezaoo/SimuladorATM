@@ -39,11 +39,11 @@ internal class MenuOpcoesLogado : Menu
                 break;
 
             case 2:
-                menus[2].Execute(conta.ContaID, contaDAL);
+                menus[2].Execute(conta);
                 break;
 
             case 3:
-                menus[3].Execute(conta, contaDAL);
+                menus[3].Execute(conta);
 
                 break;
             case 4:

@@ -7,9 +7,10 @@ namespace SimuladorATM.Menu;
 
 internal class MenuTransferencia : Menu
 {
-    public override void Execute(DadosConta conta, ContaDAL contaDAL)
+    public override void Execute(DadosConta conta)
     {
         base.Execute(conta);
+        var contaDAL = new ContaDAL(new SimuladorATMContext());
         var transacaoService = new TransacaoService(new SimuladorATMContext()); 
         ExibirSecao("Transferência");
         Console.WriteLine();
